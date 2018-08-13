@@ -1,6 +1,30 @@
 import React, { Component } from 'react';
 import { Stopwatch } from './stopwatch';
 export class Task extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      btn: "btn btn-success",
+      img: "https://png.icons8.com/metro/1600/play.png"
+    }
+  }
+
+  onHandlePausePlay() {
+    this.child.stopwatchLogic();
+    if (this.state.btn === "btn btn-success") {
+      this.setState({
+        btn: "btn btn-secondary",
+        img: "https://png.icons8.com/metro/1600/pause.png"
+      });
+    }
+    else {
+      this.setState({
+        btn: "btn btn-success",
+        img: "https://png.icons8.com/metro/1600/play.png"
+      });
+    }
+  }
+
   render() {
     return (
       <tr>
@@ -8,10 +32,10 @@ export class Task extends Component {
         <td>{this.props.task.ime}</td>
         <td>{this.props.task.opis}</td>
         <td>{this.props.task.procenjenoVreme}</td>
-        <td><Stopwatch /></td>
+        <td><Stopwatch ref={(instance) => {this.child = instance}} /></td>
         <td>
-          <button className="btn btn-warning"> 
-            <img src="https://png.icons8.com/metro/1600/pause.png" width="30" height="30" className="d-inline-block align-top" alt="" />
+          <button className={this.state.btn} onClick={() => this.onHandlePausePlay()}> 
+            <img src={this.state.img} width="30" height="30" className="d-inline-block align-top" alt="" />
           </button>
         </td>
         <td>
