@@ -47,3 +47,26 @@ export function editOnChangeProcenjenoVreme(event) {
         payload: event.target.value
     };
 }
+
+export function editOnChangeSeconds(event) {
+    return {
+        type: "EDIT_ON_CHANGE_SECONDS",
+        payload: event.target.value
+    };
+}
+
+export function editOnChangeMinutes(event) {
+    return {
+        type: "EDIT_ON_CHANGE_MINUTES",
+        payload: event.target.value
+    };
+}
+
+export function editOnChangeHours(event) {
+    return {
+        type: "EDIT_ON_CHANGE_HOURS",
+        payload: event.target.value
+    };
+}
+//on change f-je + get
+

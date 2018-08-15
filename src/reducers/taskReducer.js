@@ -1,23 +1,26 @@
 const taskReducer = (state = {
     lastToEdit : null,
     editIme : 0,
-    editProcenjenoVreme: 0,
-    editOpis: 0,
+    editProcenjenoVreme: "00:00:00",
+    editSeconds: 0,
+    editMinutes: 0,
+    editHours: 0,
+    editOpis : 0,
     number : 3,
     tasks : [
         {
             ime: "first",
-            procenjenoVreme: 10,
+            procenjenoVreme: "05:20:20",
             opis: "firstfirst"
         },
         {
             ime: "second",
-            procenjenoVreme: 10,
+            procenjenoVreme: "05:24:20",
             opis: "firstssfirst"
         },
         {
             ime: "third",
-            procenjenoVreme: 10,
+            procenjenoVreme: "07:20:20",
             opis: "firstaaafirst"
         },
     ]
@@ -46,6 +49,9 @@ const taskReducer = (state = {
                 lastToEdit: action.payload,
                 editIme: state.tasks[action.payload].ime,
                 editProcenjenoVreme: state.tasks[action.payload].procenjenoVreme,
+                editSeconds: Number.parseInt(state.tasks[action.payload].procenjenoVreme.slice(-2), 10),
+                editMinutes: Number.parseInt(state.tasks[action.payload].procenjenoVreme.slice(3,5), 10),
+                editHours: Number.parseInt(state.tasks[action.payload].procenjenoVreme.slice(0.2), 10),
                 editOpis: state.tasks[action.payload].opis
             }
             break;
@@ -75,6 +81,25 @@ const taskReducer = (state = {
                 ...state,
                 editProcenjenoVreme: action.payload
             }
+            break;
+        case "EDIT_ON_CHANGE_SECONDS":
+            state = {
+                ...state,
+                editSeconds: action.payload
+            }
+            break;
+        case "EDIT_ON_CHANGE_MINUTES":
+            state = {
+                ...state,
+                editMinutes: action.payload
+            }
+            break;
+        case "EDIT_ON_CHANGE_HOURS":
+            state = {
+                ...state,
+                editHours: action.payload
+            }
+            console.log(state.editHours);
             break;
     }
 

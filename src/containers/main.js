@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import { Tasks } from '../components/tasks-list';
 import { FormTask } from '../components/formTask';
 import { EditFormTask } from '../components/editFormTask';
-
 
 export class Main extends Component {
   render() {
@@ -15,8 +13,6 @@ export class Main extends Component {
           <br />
           <FormTask addNewTask={this.props.addNewTask} />
         </div>
-
-        
         <br />
         <EditFormTask 
           lastToEdit={this.props.lastToEdit} 
@@ -25,9 +21,18 @@ export class Main extends Component {
           editOpis={this.props.editOpis}
           editProcenjenoVreme={this.props.editProcenjenoVreme}
           editIme={this.props.editIme}
+          editSeconds={this.props.editSeconds}
+          editMinutes={this.props.editMinutes}
+          editHours={this.props.editHours}
           editOnChangeIme={this.props.editOnChangeIme}
           editOnChangeOpis={this.props.editOnChangeOpis}
           editOnChangeProcenjenoVreme={this.props.editOnChangeProcenjenoVreme}
+          getSeconds={this.props.getSeconds}
+          getMinutes={this.props.getMinutes}
+          getHours={this.props.getHours}
+          editOnChangeSeconds={this.props.editOnChangeSeconds}
+          editOnChangeMinutes={this.props.editOnChangeMinutes}
+          editOnChangeHours={this.props.editOnChangeHours}
         />
         <Tasks 
           tasks={this.props.tasks} 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import { Header } from './components/header';
 import { Main } from './containers/main';
-import { addNewTask, deleteTask, editTask, findLastToEdit, editOnChangeIme, editOnChangeProcenjenoVreme, editOnChangeOpis} from './actions/taskActions';
+import { addNewTask, deleteTask, editTask, findLastToEdit, editOnChangeIme, editOnChangeProcenjenoVreme, editOnChangeOpis,  editOnChangeHours, editOnChangeMinutes, editOnChangeSeconds} from './actions/taskActions';
 
 
 
@@ -19,6 +19,9 @@ class App extends Component {
           editIme={this.props.task.editIme}
           editOpis={this.props.task.editOpis}
           editProcenjenoVreme={this.props.task.editProcenjenoVreme}
+          editSeconds={this.props.task.editSeconds}
+          editMinutes={this.props.task.editMinutes}
+          editHours={this.props.task.editHours}
           findLastToEdit={this.props.findLastToEdit}
           addNewTask={this.props.addNewTask}
           deleteTask={this.props.deleteTask}
@@ -26,6 +29,12 @@ class App extends Component {
           editOnChangeIme={this.props.editOnChangeIme}
           editOnChangeOpis={this.props.editOnChangeOpis}
           editOnChangeProcenjenoVreme={this.props.editOnChangeProcenjenoVreme}
+          getSeconds={this.props.getSeconds}
+          getMinutes={this.props.getMinutes}
+          getHours={this.props.getHours}
+          editOnChangeSeconds={this.props.editOnChangeSeconds}
+          editOnChangeMinutes={this.props.editOnChangeMinutes}
+          editOnChangeHours={this.props.editOnChangeHours}
         />
       </div>
     );
@@ -67,6 +76,18 @@ const mapDispatchToProps = (dispatch) => {
     editOnChangeProcenjenoVreme: (event) => {
       dispatch(editOnChangeProcenjenoVreme(event))
     },
+
+    editOnChangeSeconds: (event) => {
+      dispatch(editOnChangeSeconds(event))
+    },
+
+    editOnChangeMinutes: (event) => {
+      dispatch(editOnChangeMinutes(event))
+    },
+
+    editOnChangeHours: (event) => {
+      dispatch(editOnChangeHours(event))
+    }
   };
 };
 

@@ -4,6 +4,7 @@ export class Stopwatch extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            delete: false,
             seconds: 0,
             paused: true
         }
@@ -31,19 +32,24 @@ export class Stopwatch extends Component {
             if (this.state.paused) {
                 clearInterval(stopwatch)
             }
-
-            this.setState({
-                ...this.state,
-                seconds: this.state.seconds + 1
-            });
+            else {
+                this.setState({
+                    ...this.state,
+                    seconds: this.state.seconds + 1
+                });
+            }
         }, 1000);
+    }
+
+    componentWillUnmount() {
+        console.log(this.state.seconds);
     }
     
     render() {
         return (
-        <div>
+        <td>
             {this.getHours()}:{this.getMinutes()}:{this.getSeconds()}
-        </div>
+        </td>
         );
     }
 }

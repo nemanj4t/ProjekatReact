@@ -21,7 +21,7 @@ export class Tasks extends Component {
                   return (
                   <Task 
                     task={task}
-                    broj={i}
+                    index={i}
                     key={i}
                     delete={this.props.deleteTask}
                     findLastToEdit={this.props.findLastToEdit}
