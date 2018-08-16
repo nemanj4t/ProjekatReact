@@ -4,15 +4,24 @@ import { connect } from 'react-redux';
 import './App.css';
 import { Header } from './components/header';
 import { Main } from './containers/main';
+import { BrowserRouter, Route } from 'react-router-dom'
 import { addNewTask, deleteTask, editTask, findLastToEdit, editOnChangeIme, editOnChangeProcenjenoVreme, editOnChangeOpis,  editOnChangeHours, editOnChangeMinutes, editOnChangeSeconds, stopwatchIncrement} from './actions/taskActions';
-
+import { Productivity } from './components/productivity';
 
 
 class App extends Component {
   render() {
     return (
+      <BrowserRouter>
       <div className="App">
-        <Header />       
+        <Header />
+        <Route path="/productivity" component={() => 
+          <Productivity 
+            tasks={this.props.task.tasks}
+          />
+          } 
+        />
+        
         <Main 
           tasks={this.props.task.tasks}
           lastToEdit={this.props.task.lastToEdit}
@@ -39,6 +48,7 @@ class App extends Component {
           stopwatchIncrement={this.props.stopwatchIncrement}
         />
       </div>
+      </BrowserRouter>
     );
   }
 }

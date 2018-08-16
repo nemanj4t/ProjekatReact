@@ -13,7 +13,7 @@ const taskReducer = (state = {
             ime: "first",
             procenjenoVreme: "05:20:20",
             opis: "firstfirst",
-            vreme: 0,
+            vreme: 19230,
         },
         {
             ime: "second",
@@ -108,11 +108,14 @@ const taskReducer = (state = {
             break;
         case "STOPWATCH_INCREMENT":
             const ETasks = state.tasks;
+            if(ETasks[action.payload] === undefined) break;
             ETasks[action.payload].vreme += 1;
             state = {
                 ...state,
                 tasks: ETasks
             }
+            break;
+        default:
             break;
     }
 

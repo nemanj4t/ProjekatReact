@@ -12,7 +12,7 @@ export class ShowDescription extends Component {
                     <div className="modal-body">
                         <p>{this.props.description}</p>
                     </div>
-                    <button className="btn btn-secondary">Exit</button>
+                    <button className="btn btn-secondary" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
