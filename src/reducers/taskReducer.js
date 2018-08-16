@@ -1,6 +1,7 @@
 const taskReducer = (state = {
     lastToEdit : null,
     editIme : 0,
+    editVreme: 0,
     editProcenjenoVreme: "00:00:00",
     editSeconds: 0,
     editMinutes: 0,
@@ -11,17 +12,20 @@ const taskReducer = (state = {
         {
             ime: "first",
             procenjenoVreme: "05:20:20",
-            opis: "firstfirst"
+            opis: "firstfirst",
+            vreme: 0,
         },
         {
             ime: "second",
             procenjenoVreme: "05:24:20",
-            opis: "firstssfirst"
+            opis: "firstssfirst",
+            vreme: 0,
         },
         {
             ime: "third",
             procenjenoVreme: "07:20:20",
-            opis: "firstaaafirst"
+            opis: "firstaaafirst",
+            vreme: 0
         },
     ]
 }, action) => {
@@ -36,7 +40,7 @@ const taskReducer = (state = {
         case "DELETE_TASK":
             const beforeDeleted = state.tasks.slice(0, action.payload)
             const afterDeleted = state.tasks.slice(action.payload + 1, state.number)
-            
+            console.log(beforeDeleted.concat(afterDeleted));
             state = {
                 ...state,
                 number: state.number - 1,
@@ -47,6 +51,7 @@ const taskReducer = (state = {
             state = {
                 ...state,
                 lastToEdit: action.payload,
+                editVreme: state.tasks[action.payload].vreme,
                 editIme: state.tasks[action.payload].ime,
                 editProcenjenoVreme: state.tasks[action.payload].procenjenoVreme,
                 editSeconds: Number.parseInt(state.tasks[action.payload].procenjenoVreme.slice(-2), 10),
@@ -100,6 +105,14 @@ const taskReducer = (state = {
                 editHours: action.payload
             }
             console.log(state.editHours);
+            break;
+        case "STOPWATCH_INCREMENT":
+            const ETasks = state.tasks;
+            ETasks[action.payload].vreme += 1;
+            state = {
+                ...state,
+                tasks: ETasks
+            }
             break;
     }
 

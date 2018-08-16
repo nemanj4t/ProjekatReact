@@ -19,6 +19,7 @@ export class Main extends Component {
           task={this.props.tasks[this.props.lastToEdit]} 
           editTask={this.props.editTask}
           editOpis={this.props.editOpis}
+          editVreme={this.props.editVreme}
           editProcenjenoVreme={this.props.editProcenjenoVreme}
           editIme={this.props.editIme}
           editSeconds={this.props.editSeconds}
@@ -34,10 +35,11 @@ export class Main extends Component {
           editOnChangeMinutes={this.props.editOnChangeMinutes}
           editOnChangeHours={this.props.editOnChangeHours}
         />
-        <Tasks 
+        <Tasks
           tasks={this.props.tasks} 
           deleteTask={this.props.deleteTask}
           findLastToEdit={this.props.findLastToEdit}
+          stopwatchIncrement={this.props.stopwatchIncrement}
         />
       </div>
     );

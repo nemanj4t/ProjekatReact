@@ -27,6 +27,13 @@ export function findLastToEdit(index) {
     };
 }
 
+export function stopwatchIncrement(index) {
+    return {
+        type: "STOPWATCH_INCREMENT",
+        payload: index
+    };
+}
+
 export function editOnChangeIme(event) {
     return {
         type: "EDIT_ON_CHANGE_IME",
@@ -68,5 +75,4 @@ export function editOnChangeHours(event) {
         payload: event.target.value
     };
 }
-//on change f-je + get
 

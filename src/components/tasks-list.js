@@ -25,6 +25,7 @@ export class Tasks extends Component {
                     key={i}
                     delete={this.props.deleteTask}
                     findLastToEdit={this.props.findLastToEdit}
+                    stopwatchIncrement={this.props.stopwatchIncrement}
                   />);
                 })}
             </tbody>

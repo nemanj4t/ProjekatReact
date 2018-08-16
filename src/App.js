@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import { Header } from './components/header';
 import { Main } from './containers/main';
-import { addNewTask, deleteTask, editTask, findLastToEdit, editOnChangeIme, editOnChangeProcenjenoVreme, editOnChangeOpis,  editOnChangeHours, editOnChangeMinutes, editOnChangeSeconds} from './actions/taskActions';
+import { addNewTask, deleteTask, editTask, findLastToEdit, editOnChangeIme, editOnChangeProcenjenoVreme, editOnChangeOpis,  editOnChangeHours, editOnChangeMinutes, editOnChangeSeconds, stopwatchIncrement} from './actions/taskActions';
 
 
 
@@ -22,6 +22,7 @@ class App extends Component {
           editSeconds={this.props.task.editSeconds}
           editMinutes={this.props.task.editMinutes}
           editHours={this.props.task.editHours}
+          editVreme={this.props.task.editVreme}
           findLastToEdit={this.props.findLastToEdit}
           addNewTask={this.props.addNewTask}
           deleteTask={this.props.deleteTask}
@@ -35,6 +36,7 @@ class App extends Component {
           editOnChangeSeconds={this.props.editOnChangeSeconds}
           editOnChangeMinutes={this.props.editOnChangeMinutes}
           editOnChangeHours={this.props.editOnChangeHours}
+          stopwatchIncrement={this.props.stopwatchIncrement}
         />
       </div>
     );
@@ -63,6 +65,10 @@ const mapDispatchToProps = (dispatch) => {
 
     findLastToEdit: (index) => {
       dispatch(findLastToEdit(index))
+    },
+
+    stopwatchIncrement: (index) => {
+      dispatch(stopwatchIncrement(index))
     },
 
     editOnChangeIme: (event) => {

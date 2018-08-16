@@ -7,7 +7,7 @@ export class Task extends Component {
     super(props);
     this.state = {
       btn: "btn btn-success",
-      img: "https://png.icons8.com/metro/1600/play.png"
+      img: "https://png.icons8.com/metro/1600/play.png",
     }
   }
 
@@ -29,7 +29,7 @@ export class Task extends Component {
 
   render() {
     return (
-      <tr>
+      <tr id={"row" + this.props.index}>
         <th scope="row">{this.props.index + 1}</th>
         <td>{this.props.task.ime}</td>
         <td>
@@ -44,7 +44,7 @@ export class Task extends Component {
           <ShowDescription index={this.props.index} description={this.props.task.opis}/>
         </td>
         <td>{this.props.task.procenjenoVreme}</td>
-        <Stopwatch ref={(instance) => {this.child = instance}} />
+        <Stopwatch stopwatchIncrement={this.props.stopwatchIncrement} vreme={this.props.task.vreme} index={this.props.index} ref={(instance) => {this.child = instance}} />
         <td>
           <button className={this.state.btn} onClick={() => this.onHandlePausePlay()}> 
             <img src={this.state.img} width="30" height="30" className="d-inline-block align-top" alt="" />

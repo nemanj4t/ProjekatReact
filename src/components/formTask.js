@@ -25,7 +25,8 @@ export class FormTask extends Component {
                   {
                     ime:  document.getElementById("ime").value,
                     opis: document.getElementById("opis").value,
-                    procenjenoVreme: ('00'+ document.getElementById("hours").value).slice(-2) + ':' + ('00'+ document.getElementById("minutes").value).slice(-2) + ':' + ('00' + document.getElementById("seconds").value).slice(-2)
+                    procenjenoVreme: ('00'+ document.getElementById("hours").value).slice(-2) + ':' + ('00'+ document.getElementById("minutes").value).slice(-2) + ':' + ('00' + document.getElementById("seconds").value).slice(-2),
+                    vreme: 0
                   }
                 )
                 document.getElementById("ime").value = "";

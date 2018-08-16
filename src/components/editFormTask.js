@@ -84,7 +84,8 @@ export class EditFormTask extends Component {
                         {
                           ime:  document.getElementById("editIme").value,
                           opis: document.getElementById("editOpis").value,
-                          procenjenoVreme: ('00'+ document.getElementById("editHours").value).slice(-2) + ':' + ('00'+ document.getElementById("editMinutes").value).slice(-2) + ':' + ('00' + document.getElementById("editSeconds").value).slice(-2)
+                          procenjenoVreme: ('00'+ document.getElementById("editHours").value).slice(-2) + ':' + ('00'+ document.getElementById("editMinutes").value).slice(-2) + ':' + ('00' + document.getElementById("editSeconds").value).slice(-2),
+                          vreme: this.props.editVreme
                         },
                         this.props.lastToEdit
                       )
