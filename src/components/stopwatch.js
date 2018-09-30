@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 
 export class Stopwatch extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            paused: true,
-        }
-    }
 
     getSeconds() {
         return ('0' + (this.props.vreme % 60)).slice(-2);
@@ -21,13 +15,8 @@ export class Stopwatch extends Component {
     }
 
     stopwatchLogic() {
-        this.setState({
-            ...this.state,
-            paused: !this.state.paused
-        });
-
         const stopwatch = setInterval(() => {
-            if (this.state.paused) {
+            if (this.props.task.paused) {
                 clearInterval(stopwatch)
             }
             else {

@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import task from './reducers/taskReducer';
 import createSagaMiddleware from 'redux-saga'
-import { editMsg, deleteMsg, addMsg, watchEdit, watchAdd, watchDelete } from './sagas'
+import { watchEdit, watchAdd, watchDelete } from './sagas'
 
 const sagaMiddleware = createSagaMiddleware();
 

@@ -40,6 +40,7 @@ export class Main extends Component {
           deleteTask={this.props.deleteTask}
           findLastToEdit={this.props.findLastToEdit}
           stopwatchIncrement={this.props.stopwatchIncrement}
+          editOnChangePausePlay={this.props.editOnChangePausePlay}
         />
       </div>
     );

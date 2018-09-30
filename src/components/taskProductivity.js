@@ -43,13 +43,21 @@ export class TaskProductivity extends Component {
           >
             >
           </button>
-          <ShowDescription index={this.props.index} description={this.props.task.opis}/>
+          <ShowDescription 
+            index={this.props.index} 
+            description={this.props.task.opis}
+          />
         </td>
         <td>{this.props.task.procenjenoVreme}</td>
         <td>
            {this.getHours(this.props.task.vreme)}:{this.getMinutes(this.props.task.vreme)}:{this.getSeconds(this.props.task.vreme)}
         </td>
-        <td id={"bilans" + this.props.index} style={{backgroundColor: this.state.greenBackgroundColor ? 'green' : 'red', color: "white"}}>{this.state.greenBackgroundColor ? '-' : '+'} {this.taskProductivityLogic()}</td>
+        <td 
+          id={"bilans" + this.props.index} 
+          style={{backgroundColor: this.state.greenBackgroundColor ? 'green' : 'red', color: "white"}}
+        >
+          {this.state.greenBackgroundColor ? '-' : '+'} {this.taskProductivityLogic()}
+        </td>
       </tr>
     );
   }

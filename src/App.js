@@ -5,7 +5,7 @@ import './App.css';
 import { Header } from './components/header';
 import { Main } from './containers/main';
 import { BrowserRouter, Route } from 'react-router-dom'
-import { addNewTask, deleteTask, editTask, findLastToEdit, editOnChangeIme, editOnChangeProcenjenoVreme, editOnChangeOpis,  editOnChangeHours, editOnChangeMinutes, editOnChangeSeconds, stopwatchIncrement} from './actions/taskActions';
+import { addNewTask, deleteTask, editTask, findLastToEdit, editOnChangeIme, editOnChangeProcenjenoVreme, editOnChangeOpis,  editOnChangeHours, editOnChangeMinutes, editOnChangeSeconds, stopwatchIncrement, editOnChangePausePlay} from './actions/taskActions';
 import { Productivity } from './components/productivity';
 
 
@@ -46,6 +46,7 @@ class App extends Component {
           editOnChangeMinutes={this.props.editOnChangeMinutes}
           editOnChangeHours={this.props.editOnChangeHours}
           stopwatchIncrement={this.props.stopwatchIncrement}
+          editOnChangePausePlay={this.props.editOnChangePausePlay}
         />
       </div>
       </BrowserRouter>
@@ -103,6 +104,10 @@ const mapDispatchToProps = (dispatch) => {
 
     editOnChangeHours: (event) => {
       dispatch(editOnChangeHours(event))
+    },
+
+    editOnChangePausePlay: (index) => {
+      dispatch(editOnChangePausePlay(index))
     }
   };
 };

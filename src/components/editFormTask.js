@@ -85,7 +85,10 @@ export class EditFormTask extends Component {
                           ime:  document.getElementById("editIme").value,
                           opis: document.getElementById("editOpis").value,
                           procenjenoVreme: ('00'+ document.getElementById("editHours").value).slice(-2) + ':' + ('00'+ document.getElementById("editMinutes").value).slice(-2) + ':' + ('00' + document.getElementById("editSeconds").value).slice(-2),
-                          vreme: this.props.editVreme
+                          vreme: this.props.editVreme,
+                          paused: true,
+                          btn: "btn btn-success",
+                          img: "https://png.icons8.com/metro/1600/play.png",
                         },
                         this.props.lastToEdit
                       )

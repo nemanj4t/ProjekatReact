@@ -26,7 +26,10 @@ export class FormTask extends Component {
                     ime:  document.getElementById("ime").value,
                     opis: document.getElementById("opis").value,
                     procenjenoVreme: ('00'+ document.getElementById("hours").value).slice(-2) + ':' + ('00'+ document.getElementById("minutes").value).slice(-2) + ':' + ('00' + document.getElementById("seconds").value).slice(-2),
-                    vreme: 0
+                    vreme: 0,
+                    paused: true,
+                    btn: "btn btn-success",
+                    img: "https://png.icons8.com/metro/1600/play.png",
                   }
                 )
                 document.getElementById("ime").value = "";

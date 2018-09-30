@@ -26,6 +26,7 @@ export class Tasks extends Component {
                     delete={this.props.deleteTask}
                     findLastToEdit={this.props.findLastToEdit}
                     stopwatchIncrement={this.props.stopwatchIncrement}
+                    editOnChangePausePlay={this.props.editOnChangePausePlay}
                   />);
                 })}
             </tbody>

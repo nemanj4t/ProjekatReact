@@ -76,3 +76,10 @@ export function editOnChangeHours(event) {
     };
 }
 
+export function editOnChangePausePlay(index) {
+    return {
+        type: "EDIT_ON_CHANGE_PAUSE_PLAY",
+        payload: index
+    };
+}
+

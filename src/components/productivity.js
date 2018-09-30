@@ -17,11 +17,11 @@ export class Productivity extends Component {
                     </tr>
                     {this.props.tasks.map((task, i) => {
                     return (
-                    <TaskProductivity
-                        task={task}
-                        index={i}
-                        key={i}
-                    />);
+                        <TaskProductivity
+                            task={task}
+                            index={i}
+                            key={i}
+                        />);
                     })}
                 </tbody>
             </table>

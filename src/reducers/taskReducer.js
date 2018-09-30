@@ -14,18 +14,27 @@ const taskReducer = (state = {
             procenjenoVreme: "05:20:20",
             opis: "firstfirst",
             vreme: 19230,
+            paused: true,
+            btn: "btn btn-success",
+            img: "https://png.icons8.com/metro/1600/play.png",
         },
         {
             ime: "second",
             procenjenoVreme: "05:24:20",
             opis: "firstssfirst",
             vreme: 0,
+            paused: true,
+            btn: "btn btn-success",
+            img: "https://png.icons8.com/metro/1600/play.png",
         },
         {
             ime: "third",
             procenjenoVreme: "07:20:20",
             opis: "firstaaafirst",
-            vreme: 0
+            vreme: 0,
+            paused: true,
+            btn: "btn btn-success",
+            img: "https://png.icons8.com/metro/1600/play.png",
         },
     ]
 }, action) => {
@@ -40,7 +49,6 @@ const taskReducer = (state = {
         case "DELETE_TASK":
             const beforeDeleted = state.tasks.slice(0, action.payload)
             const afterDeleted = state.tasks.slice(action.payload + 1, state.number)
-            console.log(beforeDeleted.concat(afterDeleted));
             state = {
                 ...state,
                 number: state.number - 1,
@@ -67,7 +75,6 @@ const taskReducer = (state = {
                 ...state,
                 tasks: editedTasks
             }
-            console.log(action.index, action.payload, editedTasks);
             break;
         case "EDIT_ON_CHANGE_IME":
             state = {
@@ -104,7 +111,23 @@ const taskReducer = (state = {
                 ...state,
                 editHours: action.payload
             }
-            console.log(state.editHours);
+            break;
+        case "EDIT_ON_CHANGE_PAUSE_PLAY":
+            const changedTasks = state.tasks;
+            changedTasks[action.payload].paused = !changedTasks[action.payload].paused
+            if (changedTasks[action.payload].paused) {
+                changedTasks[action.payload].img = "https://png.icons8.com/metro/1600/play.png";
+                changedTasks[action.payload].btn= "btn btn-success";
+              }
+              else {
+                changedTasks[action.payload].img = "https://png.icons8.com/metro/1600/pause.png";
+                changedTasks[action.payload].btn= "btn btn-secondary";
+              }
+            
+            state = {
+                ...state,
+                tasks: changedTasks
+            }
             break;
         case "STOPWATCH_INCREMENT":
             const ETasks = state.tasks;
